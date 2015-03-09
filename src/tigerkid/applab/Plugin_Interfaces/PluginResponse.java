@@ -8,17 +8,19 @@ package tigerkid.applab.Plugin_Interfaces;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class PluginResponse implements Parcelable {
 
+    private static final String LOG_TAG = "PluginResponse";
     String mString;
     int mInt;
 
     @Override
     public int describeContents() {
         // TODO Auto-generated method stub
-        System.out.println("mString: " + mString);
-        System.out.println("mInt: " + Integer.toString(mInt));
+        Log.d(LOG_TAG, "mString: " + mString);
+        Log.d(LOG_TAG,"mInt: " + Integer.toString(mInt));
         return 0;
     }
 
@@ -54,8 +56,16 @@ public class PluginResponse implements Parcelable {
         this.mInt = in.readInt();
     }
 
-    public PluginResponse getPluginResponse(PluginResponse in){
-        return new PluginResponse(in.mString, in.mInt);
+    public String getmString(){
+        return mString;
+    }
+
+    public int getmInt(){
+        return mInt;
+    }
+
+    public PluginResponse getPluginResponse(){
+        return new PluginResponse(this.mString, this.mInt);
     }
 
     public static final Parcelable.Creator<PluginResponse> CREATOR = new Parcelable.Creator<PluginResponse>() {

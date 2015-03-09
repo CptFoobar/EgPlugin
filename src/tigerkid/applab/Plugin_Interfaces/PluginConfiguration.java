@@ -48,8 +48,16 @@ public class PluginConfiguration implements Parcelable {
         this.mInt = in.readInt();
     }
 
-    public PluginConfiguration getPluginConfiguration(PluginConfiguration in){
-        return new PluginConfiguration(in.mString, in.mInt);
+    public String getmString(){
+        return mString;
+    }
+
+    public int getmInt(){
+        return mInt;
+    }
+
+    public PluginConfiguration getPluginConfiguration(){
+        return new PluginConfiguration(this.mString, this.mInt);
     }
 
     public static final Parcelable.Creator<PluginConfiguration> CREATOR = new Parcelable.Creator<PluginConfiguration>() {

@@ -26,6 +26,11 @@ interface IPluginInterface {
      */
     void run();
 	/**
+     * update:
+     * Receive update from host.
+     */
+    void update(in PluginConfiguration pluginConfiguration);
+	/**
      * unload:
      * Deinitalize plugin, unregister callbacks, cleanup.
      */
